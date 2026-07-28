@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+#
+# Update CITATION.cff via web application (GUI):
+# https://citation-file-format.github.io/cff-initializer-javascript/#/update
+#
+cff-version: 1.2.0
+title: Information Quality Monitor
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file. Add your own description here.
+type: software
+authors:
+  - given-names: Yannick
+    family-names: Kees
+    email: yannick.kees@dlr.de
+    affiliation: German Aerospace Center (DLR)
+    orcid: 'https://orcid.org/0009-0007-0792-7908'
+  - name: German Aerospace Center (DLR)
+    address: Linder Höhe
+    city: Cologne
+    post-code: '51147'
+    region: NRW
+    alias: DLR
+    website: 'https://www.dlr.de/de'
+    tel: '+49 2241 20148 927'
+url: "https://github.com/DLR-KI/information-quality-monitor"
+abstract: >-
+  design strategy for AI-based systems in automated driving that can deal with poor-quality input data without resorting to fallback solutions.
+  Such measures enhance trust in AI-based systems and lead to an increased provision of the AI component.
+keywords:
+  - DLR
+  - Safe AI Engineering
+  - AI Engineering
+  - Monitoring
+  - Deep Learning
+  - Information Quality Monitor
+  - Image Quality
+  - Input Monitor
+  - ROS2
+version: 1.0.0
+date-released: '2026-07-01'

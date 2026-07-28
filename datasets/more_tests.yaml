@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+name: Zenseact Open Dataset (ZOD)
+train:
+  data: /home/kees_ya/Desktop/projects/information_quality_monitor/more_data/images
+  labels: /home/kees_ya/Desktop/projects/information_quality_monitor/more_data/labels
+test:
+  data: /home/kees_ya/Desktop/projects/information_quality_monitor/more_data/images
+  labels: /home/kees_ya/Desktop/projects/information_quality_monitor/more_data/labels
+val:
+  data: /home/kees_ya/Desktop/projects/information_quality_monitor/more_data/images
+  labels: /home/kees_ya/Desktop/projects/information_quality_monitor/more_data/labels

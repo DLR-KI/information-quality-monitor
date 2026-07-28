@@ -1,0 +1,35 @@
+/*
+ * SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container a {
+    display: inline-flex;
+    /* Ensures the link behaves as an inline-flex container */
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+    display: block;
+    /* Prevents extra space below the image caused by inline elements */
+}

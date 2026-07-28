@@ -1,0 +1,139 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+# :schema https://www.schemastore.org/prek.json
+
+default_install_hook_types = [
+  "pre-commit",
+  "commit-msg",
+  "pre-push",
+  "post-checkout",
+  "post-merge",
+  "post-rewrite"
+]
+default_stages = ["pre-commit"]
+
+[[repos]]
+hooks = [
+  {id = "check-ast"},
+  {id = "check-builtin-literals"},
+  {id = "check-case-conflict"},
+  {id = "check-docstring-first"},
+  {id = "check-executables-have-shebangs"},
+  {id = "check-json"},
+  {id = "check-merge-conflict"},
+  {id = "check-shebang-scripts-are-executable"},
+  {id = "check-toml"},
+  {id = "check-yaml"},
+  {id = "debug-statements"},
+  {id = "end-of-file-fixer"},
+  {id = "mixed-line-ending", args = [
+    "--fix=lf"
+  ], exclude = "docs/make.bat"},
+  {id = "trailing-whitespace"}
+]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+rev = "v6.0.0"
+
+[[repos]]
+hooks = [{id = "uv-sync", name = "Synchronize uv.lock with pyproject.toml"}]
+repo = "https://github.com/astral-sh/uv-pre-commit"
+rev = "0.11.26"
+
+[[repos]]
+hooks = [{id = "reuse", name = "Check license headers (REUSE)"}]
+repo = "https://github.com/fsfe/reuse-tool"
+rev = "v6.2.0"
+
+[[repos]]
+hooks = [
+  {id = "licensecheck", language = "python", name = "Check licenses of Python dependencies"}
+]
+repo = "https://github.com/FHPythonUtils/LicenseCheck"
+rev = "2026.0.8"
+
+[[repos]]
+hooks = [
+  {id = "pip-audit", name = "Scan Python dependencies for vulnerabilities (pip-audit)"}
+]
+repo = "https://github.com/pypa/pip-audit"
+rev = "v2.10.1"
+
+[[repos]]
+hooks = [{id = "validate-cff", name = "Validating CITATION.cff"}]
+repo = "https://github.com/citation-file-format/cffconvert"
+rev = "b6045d78aac9e02b039703b030588d54d53262ac"
+
+[[repos]]
+hooks = [{id = "editorconfig-checker"}]
+repo = "https://github.com/editorconfig-checker/editorconfig-checker.python"
+rev = "3.6.1"
+
+[[repos]]
+hooks = [
+  {id = "check-github-workflows"},
+  {id = "check-github-actions"},
+  {id = "check-dependabot"},
+  {id = "check-gitlab-ci"},
+  {id = "check-readthedocs"}
+]
+repo = "https://github.com/python-jsonschema/check-jsonschema"
+rev = "0.37.4"
+
+[[repos]]
+hooks = [
+  {id = "flake8", name = "Linting Python code (flake8)", additional_dependencies = [
+    "flake8-docstrings",
+    "flake8-docstrings-complete",
+    "flake8-pyproject"
+  ]}
+]
+repo = "https://github.com/PyCQA/flake8"
+rev = "7.3.0"
+
+[[repos]]
+hooks = [
+  {id = "ruff-check", name = "Linting Python code (ruff)"},
+  {id = "ruff-format", name = "Formatting Python code (ruff)"}
+]
+repo = "https://github.com/astral-sh/ruff-pre-commit"
+rev = "v0.15.20"
+
+[[repos]]
+hooks = [
+  {id = "codespell", name = "Fixing common spelling mistakes", args = [
+    "--write-changes"
+  ], exclude = "uv.lock|^LICENSES/"}
+]
+repo = "https://github.com/codespell-project/codespell"
+rev = "v2.4.2"
+
+[[repos]]
+hooks = [
+  {id = "markdownlint", name = "Fixing markdown linting errors", args = [
+    "--disable",
+    "MD013",
+    "--fix"
+  ]}
+]
+repo = "https://github.com/igorshubovych/markdownlint-cli"
+rev = "v0.49.0"
+
+[[repos]]
+hooks = [
+  {id = "pretty-format-yaml", args = [
+    "--autofix",
+    "--indent",
+    "2",
+    "--offset",
+    "2",
+    "--preserve-quotes"
+  ]},
+  {id = "pretty-format-toml", args = [
+    "--autofix"
+  ], exclude = "uv.lock"}
+]
+repo = "https://github.com/macisamuele/language-formatters-pre-commit-hooks"
+rev = "v2.16.0"

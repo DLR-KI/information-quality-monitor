@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+services:
+  ros2:
+    build: .
+    network_mode: host        # shares the host network stack — required for DDS multicast
+    ipc: host                 # shared memory transport (same as host DDS)
+    environment:
+      - ROS_DOMAIN_ID=0       # must match host's ROS_DOMAIN_ID
+      - FASTRTPS_DEFAULT_PROFILES_FILE=/app/fastdds.xml
+    env_file:
+      - config.env
+    command: >
+      bash -c "source /opt/ros/humble/setup.bash &&
+                uv run src/infqm/main.py"

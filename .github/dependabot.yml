@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+#
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  # Maintain dependencies for Python packages
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0  # prevents normal PRs, allows security PRs
+    assignees:
+      - Yannick-Kees
+    cooldown:
+      default-days: 7
+    ignore:
+      - dependency-name: "torch"
+        versions: ["2.7.1+cu118"]
+
+  # Maintain dependencies inside uv lock file
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0
+    assignees:
+      - Yannick-Kees
+    cooldown:
+      default-days: 7
+    ignore:
+      - dependency-name: "torch"
+        versions: ["2.7.1+cu118"]
+
+  # Maintain dependencies for GitHub actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0
+    assignees:
+      - Yannick-Kees
+    cooldown:
+      default-days: 7
+
+  # Maintain dependencies for pre-commit config
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 0
+    assignees:
+      - Yannick-Kees
+    cooldown:
+      default-days: 7

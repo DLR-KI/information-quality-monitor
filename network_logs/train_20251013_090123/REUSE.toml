@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+version = 1
+
+[[annotations]]
+SPDX-FileCopyrightText = "2026 German Aerospace Center (DLR e.V.) <https://dlr.de>"
+SPDX-License-Identifier = "CC-BY-NC-ND-3.0"
+path = ["*.png", "*.jpg", "*.jpeg"]
+
+[[annotations]]
+SPDX-FileCopyrightText = "2026 German Aerospace Center (DLR e.V.) <https://dlr.de>"
+SPDX-License-Identifier = "CC-BY-NC-ND-3.0"
+path = ["normalizing_flow_model.pth"]

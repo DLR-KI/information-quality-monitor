@@ -1,0 +1,196 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build>=0.8.11,<1.0.0"]
+
+[dependency-groups]
+ci = [
+  "anybadge",
+  "codeclimate-test-reporter",
+  "flake8-docstrings-complete",
+  "flake8-docstrings",
+  "flake8-gl-codeclimate",
+  "flake8-pyproject",
+  "flake8",
+  "licensecheck",
+  "pip-audit",
+  "pylint-gitlab",
+  "pylint-per-file-ignores",
+  "pylint",
+  "typos",
+  "typos-gitlab-code-quality"
+]
+dev = [
+  "prek>=0.3.5",
+  "reuse>=6.2.0",
+  "ruff>=0.15.5",
+  "uv>=0.10.9"
+]
+tests = ["coverage", "pytest-cov", "pytest>=7.4.0"]
+
+[project]
+authors = [{name = "Yannick Kees", email = "yannick.kees@dlr.de"}]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Typing :: Typed",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Programming Language :: Python :: Implementation :: CPython"
+]
+dependencies = [
+  "flasgger>=0.9.7.1",
+  "flask>=3.1.3",
+  "fvcore",
+  "matplotlib>=3.10.8",
+  "numpy>=1.0.0,<2.0.0",
+  "opencv-python<4.13.0",
+  "pandas>=2.3.3",
+  "scikit-learn>=1.7.2",
+  "seaborn>=0.13.2",
+  "torch>=2.7.1",
+  "torchvision>=0.22.1",
+  "tqdm>=4.67.3"
+]
+description = "Reference implementation of an information quality monitor for AI systems."
+license = "MIT"
+license-files = ["LICENCE", "LICENSES/*"]
+name = "infqm"
+readme = "README.md"
+requires-python = "==3.10.*"
+version = "1.0.0"
+
+[tool.codespell]
+ignore-words-list = "asteroid"
+
+[tool.flake8]
+check-return-types = true
+extend-ignore = ["DCO010", "DCO060"]
+max-complexity = "10"
+max-line-length = "88"
+select = "DCO, DOC"
+style = "google"
+
+[tool.licensecheck]
+ignore_packages = [
+  "nvidia-cublas-cu11",
+  "nvidia-cuda-cupti-cu11",
+  "nvidia-cuda-nvrtc-cu11",
+  "nvidia-cuda-runtime-cu11",
+  "nvidia-cudnn-cu11",
+  "nvidia-cufft-cu11",
+  "nvidia-curand-cu11",
+  "nvidia-cusolver-cu11",
+  "nvidia-cusparse-cu11",
+  "nvidia-nccl-cu11",
+  "nvidia-nvtx-cu11"
+]
+using = "PEP631"
+zero = true
+
+[tool.pylint.IMPORTS]
+ignored-modules = [
+  "cv2",
+  "rclpy",
+  "sensor_msgs.msg",
+  "std_msgs.msg",
+  "cv_bridge"
+]
+
+[tool.pylint.MASTER]
+load-plugins = ["pylint_per_file_ignores"]
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = "88"
+
+[tool.pylint.SIMILARITIES]
+ignore-comments = "yes"
+ignore-docstrings = "yes"
+ignore-imports = "yes"
+min-similarity-lines = 10
+
+[tool.pylint-per-file-ignores]
+# docs/conf.py: Ignore constant name not UPPER_CASE (C0103) and redefining built-in (W0622) for copyright notice
+# tests/*: Ignore missing docs (C0114, C0116), too long lines (E501), too few/many public methods (R0903, R0904), access to protected member (W0212)
+"docs/conf.py" = "C0103,W0622"
+"tests/*" = "C0114,C0116,E501,R0903,R0904,W0212"
+
+[tool.pytest.ini_options]
+addopts = "--cov=src/infqm/ --cov-report=term-missing --cov-report=xml:coverage.xml --junitxml=report.xml"
+filterwarnings = [
+  "ignore::tqdm.TqdmExperimentalWarning",
+  "ignore:builtin type SwigPyPacked has no __module__ attribute:DeprecationWarning",
+  "ignore:builtin type SwigPyObject has no __module__ attribute:DeprecationWarning",
+  "ignore:builtin type swigvarlink has no __module__ attribute:DeprecationWarning"
+]
+testpaths = ["tests"]
+
+[tool.ruff]
+fix = true
+target-version = "py310"
+unsafe-fixes = true
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.lint]
+extend-ignore = [
+  "D212",
+  "S101",
+  "E203",
+  "D105",
+  "D107",
+  "D205"
+]
+extend-select = ["B", "D", "E", "I", "UP", "Q", "TID252"]
+fixable = ["ALL"]
+preview = true
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+  "S101",
+  "ANN201",
+  "ANN205",
+  "D",
+  "E501",
+  "PLR0904",
+  "PLC2701",
+  "PLC0415",
+  "PLR2004",
+  "SLF001",
+  "S307",
+  "W505"
+]
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 72
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.uv]
+default-groups = "all"
+exclude-newer = "7 days"
+
+[[tool.uv.index]]
+explicit = true
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+
+[tool.uv.sources]
+fvcore = {git = "https://github.com/facebookresearch/fvcore"}
+torch = [
+  {index = "pytorch-cu118", marker = "sys_platform == 'linux' or sys_platform == 'win32'"}
+]
+torchvision = [
+  {index = "pytorch-cu118", marker = "sys_platform == 'linux' or sys_platform == 'win32'"}
+]

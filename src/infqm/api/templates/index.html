@@ -1,0 +1,25 @@
+<!--
+SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+
+SPDX-License-Identifier: MIT
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="image-container">
+        <a href="/apidocs">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Centered Image">
+        </a>
+    </div>
+</body>
+
+</html>

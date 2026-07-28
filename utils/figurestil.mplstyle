@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+# ---- General ----
+figure.figsize: 3.4, 2.5          # typical single-column figure size (inches)
+figure.dpi: 300
+savefig.dpi: 600
+savefig.bbox: tight
+savefig.pad_inches: 0.02
+axes.grid: False
+axes.spines.top: False
+axes.spines.right: False
+axes.linewidth: 0.8
+
+
+figure.facecolor: white
+savefig.facecolor: white
+
+# ---- Font and text ----
+font.family: serif
+font.serif: CMU Serif
+font.size: 10
+axes.labelsize: 10
+legend.fontsize: 8
+xtick.labelsize: 8
+ytick.labelsize: 8
+
+
+
+# ---- Lines and markers ----
+lines.linewidth: 1.1
+lines.markersize: 4
+lines.markeredgewidth: 0.8
+
+# ---- Colors ----
+axes.prop_cycle: cycler(color=["#1f77b4", "#ff7f0e", "#2ca02c"])
+
+# ---- Ticks ----
+xtick.direction: in
+ytick.direction: in
+xtick.major.size: 3
+ytick.major.size: 3
+xtick.minor.size: 1.5
+ytick.minor.size: 1.5
+xtick.major.width: 0.6
+ytick.major.width: 0.6
+xtick.minor.width: 0.5
+ytick.minor.width: 0.5
+xtick.top: True
+ytick.right: True
+
+# ---- Legend ----
+legend.frameon: False
+legend.handlelength: 1.5
+legend.handletextpad: 0.3
+legend.labelspacing: 0.3
+legend.borderaxespad: 0.3
+legend.borderpad: 0.2
+legend.columnspacing: 1.0
+
+# ---- Layout ----
+figure.autolayout: False
+figure.constrained_layout.use: True

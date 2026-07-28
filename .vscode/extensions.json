@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "editorconfig.editorconfig",
+    "ms-python.vscode-python-envs",
+    "tamasfe.even-better-toml",
+    "astral-sh.ty"
+  ]
+}

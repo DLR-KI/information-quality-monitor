@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+name: APIKS
+train:
+  data: /home/kees_ya/Desktop/projects/synthetic-data/scenario1
+  labels:
+test:
+  data:
+  labels:
+val:
+  data:
+  labels:

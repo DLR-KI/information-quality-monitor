@@ -1,0 +1,30 @@
+{
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.detectIndentation": false,
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.rulers": [
+            88,
+            72
+        ],
+        "editor.tabSize": 4
+    },
+    "files.associations": {
+        "LICENSE": "plaintext",
+        "*.spec": "python"
+    },
+    "git.autofetch": true,
+    "ruff.format.preview": true,
+    "ruff.lineLength": 88,
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python-envs.defaultPackageManager": "ms-python.python:pip"
+}

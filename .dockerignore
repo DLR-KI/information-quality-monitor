@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+.venv
+__pycache__
+*.pyc
+*.onnx
+models/
+*.egg-info
+.git
+results/
+*.db3

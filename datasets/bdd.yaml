@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 German Aerospace Center (DLR e.V.) <https://dlr.de>
+#
+# SPDX-License-Identifier: MIT
+
+name: BDD100k
+train:
+  data: /home/kees_ya/Desktop/projects/datapreperation/data/bdd/images/train
+  labels: /home/kees_ya/Desktop/projects/datapreperation/data/bdd/labels/train/openlabel
+test:
+  data: /home/kees_ya/Desktop/projects/datapreperation/data/bdd/images/test
+  labels: /home/kees_ya/Desktop/projects/datapreperation/data/bdd/labels/test/openlabel
+val:
+  data: /home/kees_ya/Desktop/projects/datapreperation/data/bdd/images/val
+  labels: /home/kees_ya/Desktop/projects/datapreperation/data/bdd/labels/val/openlabel
